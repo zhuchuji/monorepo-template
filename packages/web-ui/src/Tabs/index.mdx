@@ -1,0 +1,25 @@
+---
+name: Tabs
+menu: web-ui
+---
+
+### Simple Tabs
+
+```tsx
+import { useState } from 'react';
+import { Tab, TabPane } from '.';
+
+const [activeTab, setActiveTab] = useState('tab1');
+;<>
+  <Tabs activeKey={activeTab} onChange={tab => setActiveTab(tab)}>
+    <Tab key="tab1">tab1</Tab>
+    <Tab key="tab2">tab2</Tab>
+  </Tabs>
+  <TabPane index="tab1" value={activeTab}>
+    tab1 pane
+  </TabPane>
+  <TabPane index="tab2" value={activeTab}>
+    tab2 pane
+  </TabPane>
+</>
+```

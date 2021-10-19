@@ -1,0 +1,10 @@
+{
+  "command": {
+    "publish": {
+      "graphType": "all",
+    }
+  },
+  "packages": ["packages/*"],
+  "version": "independent",
+  "useWorkspaces": true
+}

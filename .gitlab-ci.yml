@@ -1,0 +1,27 @@
+variables:
+  NODE_VERSION: 12.13.1
+  GIT_STRATEGY: clone  
+
+stages:
+  - doc
+
+pages:
+  stage: doc
+  only:
+    refs:
+      - develop
+  cache:
+    key: '$CI_PROJECT_PATH'
+    paths:
+      - node_modules
+  before_script:
+    - nvm use $NODE_VERSION
+    - yarn install --frozen-lockfile
+  artifacts:
+    paths:
+      - public
+  tags:
+    - runner2
+  script:
+    - yarn doc
+    

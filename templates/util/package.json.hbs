@@ -1,0 +1,24 @@
+{
+  "name": "@live/{{packageName}}",
+  "version": "0.0.1",
+  "description": "@live/{{packageName}}",
+  "private": false,
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "workspaces": [
+    "../../packages/**/*",
+    "../../../packages/**/*"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "check": "tsc -p ./tsconfig.check.json",
+    "clean": "rimraf dist",
+    "build": "yarn clean && rollup --config ./rollup.config.js",
+    "prepublish": "yarn run build"
+  }
+}

@@ -1,0 +1,165 @@
+---
+name: Grid
+menu: web-ui
+---
+
+import { Playground, Props } from 'docz';
+import styled from 'styled-components';
+import { Grid } from '../';
+
+### Basic grid
+
+<Playground>
+  {() => {
+    const Item = styled(Grid)`
+      border: 1px solid #cecece;
+    `;
+    return (
+      <Grid flex>
+        <Item>grid</Item>
+        <Item>grid</Item>
+      </Grid>
+    )
+  }}
+</Playground>
+
+### Three kinds of grid
+
+<Playground>
+  {() => {
+    const Item = styled(Grid)`
+      border: 1px solid #cecece;
+    `;
+    return (
+      <Grid flex>
+        <Item span>auto grow and shrink: 1 1 flex</Item>
+        <Item span="auto">auto fit content: 0 0 auto</Item>
+        <Item span={6}>fixed grid: 6 / 12 = 50%</Item>
+      </Grid>
+    );
+  }}
+</Playground>
+
+### 12-column grid
+
+<Playground>
+  {() => {
+    const Item = styled(Grid)`
+      border: 1px solid #cecece;
+    `;
+    return (
+      <Grid flex>
+        <Item span={1}>span=1</Item>
+        <Item span={4}>span=4</Item>
+        <Item span={6}>span=6</Item>
+      </Grid>
+    );
+  }}
+</Playground>
+
+### gutter
+We don't provide any gutters, you have to implement it with negative margin in flex container and positive padding in flex items
+
+<Playground>
+  {() => {
+    const Container = styled(Grid)`
+      margin: -10px;
+    `;
+    const Item = styled(Grid)`
+      padding: 10px;
+    `;
+    const Content = styled.div`
+      border: 1px solid #cecece;
+    `;
+    return (
+      <Container flex>
+        <Item span><Content>flex item with 20px gutter</Content></Item>
+        <Item span><Content>flex item with 20px gutter</Content></Item>
+      </Container>
+    );
+  }}
+</Playground>
+
+### direction
+Notice that grid works for "column" only when container's height is greater than flex items, such that there are space for distribution.
+
+<Playground>
+  {() => {
+    const Container = styled(Grid)`
+      height: 200px;
+    `;
+    const Item = styled(Grid)`
+      border: 1px solid #cecece;
+    `;
+    return (
+      <Container flex direction="column">
+        <Item span={4}>span=4</Item>
+        <Item span>span=true</Item>
+        <Item span="auto">span=auto</Item>
+      </Container>
+    );
+  }}
+</Playground>
+
+### justify, alignItems, alignContent, alignSelf
+
+<Playground>
+  {() => {
+    const Container = styled(Grid)`
+      height: 200px;
+    `;
+    const Item = styled(Grid)`
+      border: 1px solid #cecece;
+    `;
+    return (
+      <Container flex justify="center" alignItems="center">
+        <Item span={4}>span=4</Item>
+        <Item span>span=true</Item>
+        <Item span="auto">span=auto</Item>
+      </Container>
+    );
+  }}
+</Playground>
+
+### fillHeight and overflow
+
+<Playground>
+  {() => {
+    const Container = styled(Grid)`
+      height: 200px;
+    `;
+    const Item = styled(Grid)`
+      border: 1px solid #cecece;
+    `;
+    return (
+      <Container flex justify="center" alignItems="center">
+        <Item span={6} fillHeight>span=2</Item>
+        <Item span overflow="auto">span=true</Item>
+        <Item span="auto">span=auto</Item>
+      </Container>
+    );
+  }}
+</Playground>
+
+### Customization
+
+<Playground>
+  {() => {
+    const Container = styled(Grid)`
+      height: 200px;
+    `;
+    const Item = styled(Grid)`
+      border: 1px solid #cecece;
+    `;
+    return (
+      <Container flex justify="center" alignItems="center">
+        <Item span={2} fillHeight>span=2</Item>
+        <Item span overflow="auto">span=true</Item>
+        <Item span="auto">span=auto</Item>
+      </Container>
+    );
+  }}
+</Playground>
+
+## Props
+<Props of={Grid} />

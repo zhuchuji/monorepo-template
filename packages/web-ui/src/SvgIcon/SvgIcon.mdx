@@ -1,0 +1,49 @@
+---
+name: SvgIcon
+menu: web-ui
+---
+
+import { Playground, Props } from 'docz';
+import { SvgIcon } from '../';
+
+# SvgIcon
+
+### Basic usage
+iconfont see https://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.12&manage_type=myprojects&projectId=1999020&keyword=&project_type=&page=
+When update iconfont, you must update the link in `SvgIcon.tsx`
+
+<Playground>
+  <SvgIcon id="icon-star" />
+</Playground>
+
+### Icon list
+see https://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.12&manage_type=myprojects&projectId=1999020&keyword=&project_type=&page=
+
+
+### Update iconfont source
+Be aware of breaking change in iconfont, making specific compoennts icon font displayed incorrectly
+
+```tsx
+  <ThemeProvider
+    theme={{
+      iconfont: {
+        source: '//at.alicdn.com/t/font_1999020_az72ovu8asp.js'
+      }
+    }}
+  >
+    <App />
+  </ThemeProvider>
+```
+
+
+### Customize
+
+```tsx
+import styled from 'styled-components';
+
+const Icon = styled(SvgIcon)`
+  color: red;
+`;
+
+<Icon id="icon-star" />
+```

@@ -1,0 +1,57 @@
+---
+name: RadioGroup
+menu: web-ui
+---
+
+import { Playground, Props } from 'docz';
+import { useState } from 'react';
+import { RadioGroup } from '../../';
+
+# RadioGroup
+
+### Basic usage
+
+<Playground>
+  {() => {
+    const [value, setValue] = useState();
+    return (
+      <>
+        <label>性别：</label>
+        <RadioGroup
+          value={value}
+          onChange={(value) => setValue(value)}
+          options={[
+            { value: 1, name: '男' },
+            { value: 2, name: '女' },
+          ]}
+        />
+      </>
+    );
+  }}
+</Playground>
+
+### uncontrolled radio group
+
+<Playground>
+  <label>性别：</label>
+  <RadioGroup
+    options={[
+      { value: 1, name: '男' },
+      { value: 2, name: '女' },
+    ]}
+  />
+</Playground>
+
+### disabled
+
+<Playground>
+<label>性别：</label>
+<RadioGroup
+  disabled
+  value={1}
+  options={[
+    { value: 1, name: '男' },
+    { value: 2, name: '女' },
+  ]}
+/>
+</Playground>

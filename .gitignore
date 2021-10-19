@@ -1,0 +1,18 @@
+// deps
+node_modules
+
+// build
+dist
+
+// doc
+.docz
+public
+
+// log
+*.log
+
+// eslint
+.eslintcache
+
+// mac osx
+.DS_Store
