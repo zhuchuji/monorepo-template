@@ -1,0 +1,1 @@
+{"compilerOptions":{"baseUrl":".","paths":{"@monorepo/test-component":["./packages/test-component/src","../../packages/test-component/src"],"@monorepo/test-util":["./packages/test-util/src","../../packages/test-util/src"]}}}

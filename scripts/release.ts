@@ -13,24 +13,22 @@ function execCmd(command: string) {
       if (code === 0) {
         resolve('success');
       } else {
-        reject(`command fail: ${command}`);
+        reject(new Error(`command fail: ${command}`));
       }
     });
   });
 }
 
 async function release() {
-  const { stdout: branchStd } = await asyncExec('git rev-parse --abbrev-ref HEAD');
-  const branchName = branchStd.toString().trim();
+  const { stdout } = await asyncExec('git rev-parse --abbrev-ref HEAD');
+  const branchName = stdout.toString().trim();
   const pushCmdLine = `git push origin ${branchName}`;
   await execCmd(pushCmdLine);
-  const isTrunk = branchName === 'develop';
-  const distTag = isTrunk ? 'latest' : branchName.replace(/[^a-zA-Z0-9]+/g, '_');
+  const isTrunk = branchName === 'master' || branchName === 'develop';
+  const distTag = isTrunk ? 'latest' : 'next';
   const log = chalk.green(`release on branch: ${branchName}, dist-tag: ${distTag}`);
   console.log(log);
-  const publishCmdLine = isTrunk
-    ? 'lerna publish'
-    : `lerna publish prerelease --dist-tag ${distTag}`;
+  const publishCmdLine = isTrunk ? 'lerna publish' : `lerna publish prerelease --preid beta --dist-tag ${distTag}`;
   await execCmd(publishCmdLine);
   console.log(log);
 }

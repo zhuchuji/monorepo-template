@@ -1,7 +1,7 @@
 {
   "command": {
     "publish": {
-      "graphType": "all",
+      "graphType": "all"
     }
   },
   "packages": ["packages/*"],

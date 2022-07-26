@@ -1,0 +1,24 @@
+{
+  "name": "@monorepo/test-component",
+  "version": "0.0.0",
+  "description": "",
+  "types": "dist/test-component/src",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config ../../scripts/build/webpack.config.js",
+    "prepublish": "yarn run build"
+  },
+  "peerDependencies": {
+    "@monorepo/test-util": "^0.0.0",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0",
+    "styled-components": ">=5.0.0"
+  }
+}

@@ -1,13 +1,6 @@
 {
-  "root": true,
-
-  "extends": [],
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
-    "spaced-comment": "off",
-    "no-plusplus": "off",
-    "no-nested-ternary": "warn",
-    "no-inner-declarations": "off",
-    "@typescript-eslint/no-empty-interface": "off",
-    "@typescript-eslint/no-useless-constructor": "off"
   }
 }

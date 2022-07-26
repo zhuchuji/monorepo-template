@@ -1,1 +1,11 @@
-packages/ppt-sdk/template/player/player.js
+# deps
+node_modules
+
+# os
+.DS_Store
+
+# build
+dist
+
+# log
+*.log

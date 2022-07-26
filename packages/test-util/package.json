@@ -1,0 +1,17 @@
+{
+  "name": "@monorepo/test-util",
+  "version": "0.0.0",
+  "description": "",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config ../../scripts/build/webpack.config.js",
+    "prepublish": "yarn run build"
+  }
+}
